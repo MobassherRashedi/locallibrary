@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %} {% block content %}
+<h4><a href="{{ author.get_absolute_url }}">{{ author.name }}</a></h4>
+
+{% for book in author.book_set.all %} {% if book %}
+<ul>
+  <li>
+    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+  </li>
+</ul>
+{% else %} {% comment %}does not work else part ...fix it {% endcomment %}
+<p>Opps! This author has not published any book yet.</p>
+
+{% endif %} {% endfor %} {% endblock content %}
